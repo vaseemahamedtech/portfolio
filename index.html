@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaseem Ahamed | Portfolio</title>
+  <meta name="description" content="Portfolio of Vaseem Ahamed - Web Developer, AI Engineer, Data Analyst. Explore my projects, skills, and contact information." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" /> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    body {
+      background: #0a0d13;
+    }
+    .glow-avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 2px solid #0077ff;
+      box-shadow: 0 0 16px 2px #0077ff55, 0 0 32px 4px #0077ff22;
+      object-fit: cover;
+      background: linear-gradient(135deg, #0a0d13 60%, #0077ff11 100%);
+      margin-bottom: 1rem;
+      animation: roll-in 1.2s cubic-bezier(.68,-0.55,.27,1.55) 0.2s both, gentle-glow 2.5s infinite alternate;
+    }
+    @keyframes roll-in {
+      0% {
+        opacity: 0;
+        transform: translateX(-120px) rotate(-360deg) scale(0.5);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg) scale(1);
+      }
+    }
+    @keyframes gentle-glow {
+      0% {
+        box-shadow: 0 0 16px 2px #0077ff55, 0 0 32px 4px #0077ff22;
+      }
+      100% {
+        box-shadow: 0 0 32px 4px #0077ff55, 0 0 64px 8px #0077ff22;
+      }
+    }
+    .section-title {
+      color: #0077ff;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      letter-spacing: 2px;
+    }
+    .project-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 2px 8px #0077ff22;
+      transition: transform 0.2s;
+    }
+    .project-card:hover .project-img {
+      transform: scale(1.04) rotate(-2deg);
+      box-shadow: 0 4px 16px #0077ff77;
+    }
+    .project-card {
+      border: 2px solid #0077ff;
+      background: #151a23;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      padding: 1.5rem 1rem;
+      user-select: none;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .project-card:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 4px 16px #0077ff55;
+    }
+    .project-card h4 {
+      margin: 0;
+      text-align: center;
+      color: #0077ff;
+      font-weight: 600;
+    }
+    .service-card {
+      background: #151a23;
+      border: 2px solid #0077ff;
+      border-radius: 18px;
+      box-shadow: 0 2px 8px #0077ff22;
+      color: #0077ff;
+      padding: 2rem 1rem;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
+      min-height: 270px;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: serviceFadeIn 0.8s forwards;
+    }
+    .service-card:hover {
+      background: #0077ff;
+      color: #151a23;
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 4px 16px #0077ff77;
+    }
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #0077ff;
+      transition: color 0.2s;
+    }
+    .service-card:hover .service-icon {
+      color: #151a23;
+    }
+    .skill-item {
+      border: 2px solid #0077ff;
+      background: #151a23;
+      color: #0077ff;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .skill-item:hover {
+      background: #0077ff;
+      color: #151a23;
+    }
+    #contact input, #contact textarea {
+      background: #151a23;
+      color: #fff;
+      border: 1px solid #0077ff;
+    }
+    #contact input:focus, #contact textarea:focus {
+      border-color: #0077ff;
+      box-shadow: 0 0 8px #0077ff;
+      background: #151a23;
+      color: #fff;
+    }
+    .navbar-custom {
+      background: #151a23;
+      box-shadow: 0 2px 8px #0008;
+      z-index: 1000;
+    }
+    .navbar-custom .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+    }
+    .navbar-custom .nav-link:hover {
+      color: #0077ff !important;
+    }
+    .flex-md-row-reverse {
+      flex-direction: row-reverse !important;
+    }
+    .contact-info-icon {
+      font-size: 1.5rem;
+      color: #0077ff;
+      margin-right: 12px;
+      vertical-align: middle;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+    }
+    .contact-info-label {
+      font-weight: 600;
+      color: #0077ff;
+      margin-bottom: 0;
+    }
+    .contact-info-value {
+      color: #fff;
+      margin-bottom: 0;
+    }
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #0077ff 0%, #151a23 100%);
+      border-radius: 2px;
+      margin: 0 auto 2rem auto;
+    }
+    /* Home section animation */
+    #home {
+      animation: fadeInBg 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    @keyframes fadeInBg {
+      from { opacity: 0; filter: blur(10px);}
+      to { opacity: 1; filter: blur(0);}
+    }
+    .home-animate-title {
+      opacity: 0;
+      transform: translateY(-40px) scale(0.95);
+      animation: slideDownFade 1s 0.3s forwards;
+    }
+    .home-animate-desc {
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+      animation: slideUpFade 1s 0.7s forwards;
+    }
+    .home-animate-btn {
+      opacity: 0;
+      animation: fadeInBtn 1s 1.2s forwards;
+      transform: scale(0.9);
+    }
+    @keyframes slideDownFade {
+      to { opacity: 1; transform: translateY(0) scale(1);}
+    }
+    @keyframes slideUpFade {
+      to { opacity: 1; transform: translateY(0) scale(1);}
+    }
+    @keyframes fadeInBtn {
+      to { opacity: 1; transform: scale(1);}
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    .btn-outline-info.rounded-circle:hover {
+      background: #0077ff;
+      color: #151a23 !important;
+      border-color: #0077ff;
+      box-shadow: 0 0 8px #0077ff88;
+    }
+    /* Donut chart for professional skills */
+    .circle-progress {
+      position: relative;
+      width: 90px;
+      height: 90px;
+      display: inline-block;
+    }
+    .circle-progress svg {
+      transform: rotate(-90deg);
+    }
+    .circle-progress .bg {
+      fill: none;
+      stroke: #222b38;
+      stroke-width: 10;
+    }
+    .circle-progress .progress {
+      fill: none;
+      stroke: #0077ff;
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-dasharray: 238;
+      stroke-dashoffset: 238;
+      transition: stroke-dashoffset 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    .circle-progress .circle-text {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0077ff;
+      font-weight: bold;
+      font-size: 1.1rem;
+      pointer-events: none;
+      background: none;
+    }
+
+    /* Animations for contact icons */
+    .phone-anim i {
+      animation: phoneRing 1.4s infinite cubic-bezier(.38,.53,.56,.9);
+    }
+    @keyframes phoneRing {
+      0% { transform: rotate(0deg) scale(1); }
+      10% { transform: rotate(-18deg) scale(1.08);}
+      20% { transform: rotate(22deg) scale(1.12);}
+      30% { transform: rotate(-12deg) scale(1.04);}
+      40% { transform: rotate(16deg) scale(1.10);}
+      50% { transform: rotate(-8deg) scale(1.06);}
+      60% { transform: rotate(10deg) scale(1.02);}
+      70% { transform: rotate(-4deg) scale(1.00);}
+      80% { transform: rotate(6deg) scale(1.00);}
+      90% { transform: rotate(-2deg) scale(1);}
+      100% { transform: rotate(0deg) scale(1);}
+    }
+    .mail-anim i {
+      animation: mailShake 1.1s infinite linear;
+    }
+    @keyframes mailShake {
+      0%, 100% { transform: translateX(0);}
+      15% { transform: translateX(-3px);}
+      30% { transform: translateX(3px);}
+      45% { transform: translateX(-2px);}
+      60% { transform: translateX(2px);}
+      75% { transform: translateX(-1px);}
+      90% { transform: translateX(1px);}
+    }
+    .address-anim i {
+      animation: addressBounce 1.3s infinite cubic-bezier(.57,.18,.43,.89);
+    }
+    @keyframes addressBounce {
+      0%, 100% { transform: translateY(0);}
+      20% { transform: translateY(-8px);}
+      40% { transform: translateY(-2px);}
+      60% { transform: translateY(-12px);}
+      80% { transform: translateY(-3px);}
+    }
+
+    /* Additional Projects Styles */
+    .project-item {
+      display: none;
+    }
+    .project-item.visible {
+      display: block;
+    }
+    .project-item:nth-child(-n+3) {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="container d-flex flex-column flex-md-row align-items-center justify-content-center"
+    style="min-height:100vh;padding-top:120px;">
+    <div class="col-12 col-md-6 d-flex justify-content-center mb-4 mb-md-0">
+      <img src="https://res.cloudinary.com/dtbjsvktk/image/upload/v1720623422/IMG-20231225-WA0011_jmsgjc.jpg"
+        alt="Vaseem Ahamed B" class="glow-avatar" />
+    </div>
+    <div class="col-12 col-md-6 text-center text-md-start">
+      <h1 class="display-4 fw-bold text-white mb-3 home-animate-title">Welcome to Vaseem  Portfolio</h1>
+      <div class="divider"></div>
+      <p class="lead text-light home-animate-desc">Hi, I'm <span class="text-info">Vaseem Ahamed B</span>.<br />Web Developer | AI &amp; Data Science Enthusiast</p>
+      <div class="d-flex gap-3 justify-content-center justify-content-md-start mt-4 mb-2">
+        <a href="https://github.com/vaseemahamedtech" target="_blank" class="btn btn-outline-info rounded-circle"
+          title="GitHub" style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
+          <i class="fab fa-github fa-lg"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/vaseemahamedtech/" target="_blank"
+          class="btn btn-outline-info rounded-circle" title="LinkedIn" style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
+          <i class="fab fa-linkedin-in fa-lg"></i>
+        </a>
+        <a href="resume.pdf" download class="btn btn-outline-info rounded-circle" title="Download Resume"
+          style="width:48px;height:48px;display:flex;align-items:center;justify-content:center;">
+          <i class="fa fa-download fa-lg"></i>
+        </a>
+      </div>
+      <a href="#contact" class="btn btn-info mt-3 px-4 py-2 fw-bold shadow home-animate-btn">Let's Connect</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="container py-5">
+    <h2 class="section-title text-center">About Me</h2>
+    <div class="divider"></div>
+    <div class="row align-items-center flex-md-row-reverse">
+      <div class="col-12 col-md-5 d-flex justify-content-center mb-4 mb-md-0">
+        <img src="https://res.cloudinary.com/dtbjsvktk/image/upload/v1720623422/IMG-20231225-WA0011_jmsgjc.jpg"
+          alt="Vaseem Ahamed" class="rounded-circle shadow-lg" style="width:140px;height:140px;object-fit:cover;" />
+      </div>
+      <div class="col-12 col-md-7">
+        <p class="text-light fs-5 mb-0 text-start">
+          I'm Vaseem Ahamed. As an 19-year-old third-year B.Tech student specializing in Artificial Intelligence and Data Science at Crescent Institute of Science and Technology, I possess strong backend development skills in C, Python, and R. My academic journey is complemented by a junior typewriting course, completed with first-class distinction.<br /><br />
+          In addition to my core studies, I have successfully completed courses in cloud computing via NPTEL and a Python course through the Naan Mudhalvan website. My commitment to continuous learning ensures I stay updated with the latest technological advancements.<br /><br />
+          Beyond academics, I enjoy watching anime and listening to music. My dream is to explore various places and experience the beauty of nature, especially at night, adding a sense of tranquility to my adventurous spirit.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="container py-5">
+    <h2 class="section-title text-center">Services</h2>
+    <div class="divider"></div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4">
+        <div class="service-card text-center h-100 service-link" data-project="webdev" style="opacity:1;transform:none;">
+          <div class="service-icon mb-2"><i class="fa-solid fa-code"></i></div>
+          <h4 class="fw-bold mb-2">Web Developer</h4>
+          <p>Building responsive, modern, and visually appealing websites using HTML, CSS, JavaScript, and frameworks. I focus on user experience and performance.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-card text-center h-100 service-link" data-project="ai" style="opacity:1;transform:none;">
+          <div class="service-icon mb-2"><i class="fa-solid fa-brain"></i></div>
+          <h4 class="fw-bold mb-2">AI Engineer</h4>
+          <p>Designing and implementing AI solutions, from machine learning models to intelligent automation, using Python and popular AI libraries.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-card text-center h-100 service-link" data-project="data" style="opacity:1;transform:none;">
+          <div class="service-icon mb-2"><i class="fa-solid fa-chart-line"></i></div>
+          <h4 class="fw-bold mb-2">Data Analyst</h4>
+          <p>Analyzing and visualizing data to extract insights, create dashboards, and support data-driven decision making using Python, Pandas, and visualization tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="container py-5">
+    <h2 class="section-title text-center">Skills</h2>
+    <div class="divider"></div>
+    <div class="row justify-content-center">
+      <!-- Technical Skills Left -->
+      <div class="col-12 col-md-6 mb-4">
+        <h4 class="text-info mb-4 text-center">Technical Skills</h4>
+        <div class="mb-3">
+          <label class="text-light fw-bold">HTML</label>
+          <div class="progress" style="height: 18px;">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0"
+              aria-valuemax="100">90%</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="text-light fw-bold">CSS</label>
+          <div class="progress" style="height: 18px;">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0"
+              aria-valuemax="100">60%</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="text-light fw-bold">JavaScript</label>
+          <div class="progress" style="height: 18px;">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
+              aria-valuemax="100">85%</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="text-light fw-bold">Python</label>
+          <div class="progress" style="height: 18px;">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0"
+              aria-valuemax="100">50%</div>
+          </div>
+        </div>
+      </div>
+      <!-- Professional Skills Right -->
+      <div class="col-12 col-md-6 mb-4">
+        <h4 class="text-info mb-4 text-center">Professional Skills</h4>
+        <div class="d-flex flex-wrap justify-content-center gap-4">
+          <div class="circular-skill text-center">
+            <div class="circle-progress" data-percentage="90">
+              <svg width="90" height="90">
+                <circle class="bg" cx="45" cy="45" r="38" />
+                <circle class="progress" cx="45" cy="45" r="38" />
+              </svg>
+              <span class="circle-text">90%</span>
+            </div>
+            <div class="text-light mt-2">Creativity</div>
+          </div>
+          <div class="circular-skill text-center">
+            <div class="circle-progress" data-percentage="65">
+              <svg width="90" height="90">
+                <circle class="bg" cx="45" cy="45" r="38" />
+                <circle class="progress" cx="45" cy="45" r="38" />
+              </svg>
+              <span class="circle-text">65%</span>
+            </div>
+            <div class="text-light mt-2">Communication</div>
+          </div>
+          <div class="circular-skill text-center">
+            <div class="circle-progress" data-percentage="75">
+              <svg width="90" height="90">
+                <circle class="bg" cx="45" cy="45" r="38" />
+                <circle class="progress" cx="45" cy="45" r="38" />
+              </svg>
+              <span class="circle-text">75%</span>
+            </div>
+            <div class="text-light mt-2">Problem Solving</div>
+          </div>
+          <div class="circular-skill text-center">
+            <div class="circle-progress" data-percentage="85">
+              <svg width="90" height="90">
+                <circle class="bg" cx="45" cy="45" r="38" />
+                <circle class="progress" cx="45" cy="45" r="38" />
+              </svg>
+              <span class="circle-text">85%</span>
+            </div>
+            <div class="text-light mt-2">Teamwork</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.circle-progress').forEach(function (el) {
+          var percent = el.getAttribute('data-percentage');
+          var circle = el.querySelector('.progress');
+          var radius = 38;
+          var circumference = 2 * Math.PI * radius;
+          var offset = circumference - (percent / 100) * circumference;
+          circle.style.strokeDasharray = circumference;
+          setTimeout(function () {
+            circle.style.strokeDashoffset = offset;
+          }, 200);
+        });
+      });
+    </script>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="container text-center py-5">
+    <h2 class="section-title">Projects</h2>
+    <div class="divider"></div>
+    <div class="row g-4 justify-content-center">
+      <!-- First 3 projects - always visible -->
+      <div class="col-md-4 project-item visible" data-type="webdev">
+        <div class="project-card" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="Home Decors"
+          data-desc="A modern home décor solution offering customizable photo tiles and frames that stick to walls without nails, making it easy to decorate and redesign spaces effortlessly."
+          data-link="https://wall-snap-design-india-main.vercel.app/" data-img="home decor.png">
+          <img src="home decor.png" alt="Home Decors" class="project-img" />
+          <h4>Home Decors</h4>
+        </div>
+      </div>
+      <div class="col-md-4 project-item visible" data-type="ai">
+        <div class="project-card" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="AI-Automated Book"
+          data-desc="This project automates rewriting chapter content using AI. It fetches data, rewrites and refines it, saves versions, and selects the best using similarity analysis."
+          data-link="https://github.com/vaseemahamedtech/AI-Automated_Book_Workflow" data-img="AI-Automated_Book.png">
+          <img src="AI-Automated_Book.png" alt="AI-Automated_Book_Workflow" class="project-img" />
+          <h4>AI-Automated Book</h4>
+        </div>
+      </div>
+      <div class="col-md-4 project-item visible" data-type="data">
+        <div class="project-card" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="HR Analytics"
+          data-desc="Comprehensive data cleaning and exploratory data analysis (EDA) project using Python, Pandas, and visualization libraries to analyze HR data patterns and insights."
+          data-link="https://github.com/vaseemahamedtech/Portfolio-Afame-internship/blob/main/hr_data_analysis.ipynb"
+          data-img="">
+          <div style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; background: #0077ff; color: white; border-radius: 16px; margin-bottom: 1rem; font-size: 2rem;">
+            <i class="fa-solid fa-chart-bar"></i>
+          </div>
+          <h4>HR Analytics</h4>
+        </div>
+      </div>
+      
+      <!-- Additional projects - hidden initially -->
+      <div class="col-md-4 project-item" data-type="webdev">
+        <div class="project-card" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="Wikipedia Search Clone"
+          data-desc="A dynamic web application that replicates Wikipedia's search functionality using HTML, CSS, and JavaScript. Features real-time search with Wikipedia API integration and responsive design."
+          data-link="https://github.com/vaseemahamedtech/wikipedia-search-cloning-" data-img="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png">
+          <div style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; background: #fff; border-radius: 16px; margin-bottom: 1rem; padding: 10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" alt="Wikipedia" style="width: 100%; height: 100%; object-fit: contain;" />
+          </div>
+          <h4>Wikipedia Search Clone</h4>
+        </div>
+      </div>
+      <div class="col-md-4 project-item" data-type="ai">
+        <div class="project-card" data-bs-toggle="modal" data-bs-target="#projectModal" data-title="AI Chatbot"
+          data-desc="An intelligent conversational AI chatbot built with Python using Natural Language Processing (NLP) and machine learning. Features real-time conversation, intent recognition, and automated responses."
+          data-link="https://myai-chatbot-jc4m.onrender.com" data-img="ai-chatbot.png">
+          <div style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 16px; margin-bottom: 1rem; font-size: 2rem;">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <h4>AI Chatbot</h4>
+        </div>
+      </div>
+    </div>
+    <div class="mb-4 mt-4">
+      <button id="showAllProjects" class="btn btn-outline-info btn-sm">Show All Projects</button>
+    </div>
+  </section>
+
+  <!-- Project Modal -->
+  <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="projectTitle"></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img id="projectImage" src="" alt="Project Image" class="img-fluid rounded mb-3 shadow"
+            style="max-height:260px;object-fit:contain;" />
+          <p id="projectDesc"></p>
+        </div>
+        <div class="modal-footer border-0 d-flex justify-content-between">
+          <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+          <a id="projectLink" href="#" target="_blank" class="btn btn-info fw-bold">View Project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container py-5">
+    <h2 class="section-title text-center">Contact Me</h2>
+    <div class="divider"></div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8">
+        <div class="mb-4 d-flex align-items-center">
+          <span class="contact-info-icon phone-anim"><i class="fa-solid fa-phone"></i></span>
+          <div>
+            <div class="contact-info-label">Phone No.</div>
+            <div class="contact-info-value">8438828654</div>
+          </div>
+        </div>
+        <div class="mb-4 d-flex align-items-center">
+          <span class="contact-info-icon mail-anim"><i class="fa-solid fa-envelope"></i></span>
+          <div>
+            <div class="contact-info-label">E-mail</div>
+            <div class="contact-info-value">vaseem04112005@gmail.com</div>
+          </div>
+        </div>
+        <div class="mb-4 d-flex align-items-center">
+          <span class="contact-info-icon address-anim"><i class="fa-solid fa-map-location"></i></span>
+          <div>
+            <div class="contact-info-label">Address</div>
+            <div class="contact-info-value">1/209, four road, thurinjipatti, Bommidi, dharmapuri</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-center text-light py-4 mt-5">
+    <p class="mb-0">&copy; 2025 Vaseem Ahamed | Portfolio</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Animate donut progress
+      document.querySelectorAll('.circle-progress').forEach(function (el) {
+        var percent = el.getAttribute('data-percentage');
+        var circle = el.querySelector('.progress');
+        var radius = 38;
+        var circumference = 2 * Math.PI * radius;
+        var offset = circumference - (percent / 100) * circumference;
+        circle.style.strokeDasharray = circumference;
+        setTimeout(function () {
+          circle.style.strokeDashoffset = offset;
+        }, 200);
+      });
+
+      // Project modal details fill
+      const projectModal = document.getElementById('projectModal');
+      const projectTitle = document.getElementById('projectTitle');
+      const projectDesc = document.getElementById('projectDesc');
+      const projectImage = document.getElementById('projectImage');
+      const projectLink = document.getElementById('projectLink');
+
+      projectModal.addEventListener('show.bs.modal', function (event) {
+        const card = event.relatedTarget;
+        const title = card.getAttribute('data-title');
+        const desc = card.getAttribute('data-desc');
+        const img = card.getAttribute('data-img');
+        const link = card.getAttribute('data-link');
+
+        projectTitle.textContent = title;
+        projectDesc.textContent = desc;
+
+        if (img && img !== '') {
+          projectImage.src = img;
+          projectImage.style.display = 'block';
+        } else {
+          projectImage.style.display = 'none';
+        }
+
+        projectLink.href = link;
+      });
+
+      // Show all projects functionality
+      const showAllBtn = document.getElementById('showAllProjects');
+      const hiddenProjects = document.querySelectorAll('.project-item:not(.visible)');
+      let allProjectsShown = false;
+
+      showAllBtn.addEventListener('click', () => {
+        if (!allProjectsShown) {
+          hiddenProjects.forEach(item => {
+            item.style.display = 'block';
+          });
+          showAllBtn.textContent = 'Show Less Projects';
+          allProjectsShown = true;
+        } else {
+          hiddenProjects.forEach(item => {
+            item.style.display = 'none';
+          });
+          showAllBtn.textContent = 'Show All Projects';
+          allProjectsShown = false;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

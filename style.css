@@ -1,0 +1,143 @@
+/* style.css */
+
+body {
+  background: #0d0d0d;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #00ffe1;
+  margin-block-end: 40px;
+}
+
+.hero {
+  block-size: 100vh;
+  block-size: 100vh;
+  background: linear-gradient(to right, #000428, #004e92);
+  position: relative;
+  overflow: hidden;
+  padding: 100px 20px 60px;
+}
+
+canvas#particles {
+  position: absolute;
+  inline-size: 100%;
+  block-size: 100%;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  animation: fadeDown 1s ease-out forwards;
+}
+
+.hero-content p {
+  animation: fadeUp 1.2s ease-out forwards;
+}
+
+.about-card img {
+  inline-size: 180px;
+  block-size: 180px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card img:hover {
+  transform: scale(1.05) rotateY(5deg);
+  box-shadow: 0 0 20px #00ffe1;
+}
+
+.project-card {
+  transition: transform 0.4s ease;
+  border: 1px solid #00ffe155;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  border-color: #00ffe1;
+  box-shadow: 0 0 25px rgba(0, 255, 225, 0.3);
+}
+
+.skill-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffe1;
+}
+
+#contact-form .form-control {
+  background-color: #1a1a1a;
+  border: 1px solid #00ffe1;
+  color: #fff;
+}
+
+#contact-form .form-control::placeholder {
+  color: #aaa;
+}
+
+#contact-form button:hover {
+  background-color: #00cbb7;
+  color: #000;
+}
+
+footer {
+  background-color: #0f0f0f;
+  color: #888;
+  font-size: 14px;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-card {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: serviceFadeIn 0.8s forwards;
+}
+
+.service-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.service-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.service-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes serviceFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
