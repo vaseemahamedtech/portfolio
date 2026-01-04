@@ -85,4 +85,4 @@ For suggestions or improvements, please contact me directly via the contact info
 - **Email**: vaseem04112005@gmail.com
 - **Phone**: 8438828654
 - **GitHub**: [vaseemahamedtech](https://github.com/vaseemahamedtech)
-- **LinkedIn**: [vaseemahamed](www.linkedin.com/in/vaseem-ahamed-245472257)
+- **LinkedIn**: [vaseemahamed](https://www.linkedin.com/in/vaseem-ahamed-245472257/)
